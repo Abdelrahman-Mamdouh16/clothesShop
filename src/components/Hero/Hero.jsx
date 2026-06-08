@@ -1,4 +1,4 @@
-import hero_img from "@/assets/hero_img.png";
+import{ assets} from "../../assets/assets.js";
 
 function Hero() {
     return (
@@ -25,7 +25,7 @@ function Hero() {
             {/* Right Image */}
             <div className="lg:w-1/2 flex justify-end h-full">
                 <img
-                    src={hero_img}
+                    src={assets.hero_img}
                     alt="Hero"
                     className="w-full h-full object-fit "
                 />

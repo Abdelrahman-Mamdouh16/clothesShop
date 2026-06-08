@@ -129,8 +129,12 @@ function Navbar() {
                             <UserIcon className="w-6 h-6 text-secondary dark:text-primary" />
                         </button>
 
-                        <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 relative">
                             <ShoppingBagIcon className="w-6 h-6 text-secondary dark:text-primary" />
+                            <span className="absolute top-4 -right-0.5 bg-secondary dark:bg-primary text-white dark:text-gray-900 text-[12px] 
+                            rounded-full h-5 w-5 flex items-center justify-center">
+                                50
+                            </span>
                         </button>
 
                         <button

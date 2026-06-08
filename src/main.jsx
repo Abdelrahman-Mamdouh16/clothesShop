@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Collection from "./pages/Collection/Collection";
+import ShopContextProvider from "./Context/shopContext";
 
 
 DarkModeTheme();
@@ -16,7 +17,9 @@ DarkModeTheme();
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element:
+      <App />
+    ,
     children: [
       {
         index: true,
@@ -40,6 +43,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
-    <RouterProvider router={router} />
+
+    <ShopContextProvider>
+      <RouterProvider router={router} />
+    </ShopContextProvider>
   </div>
 );
