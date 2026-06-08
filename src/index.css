@@ -1,3 +1,5 @@
+
+
 @import "flowbite";
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
@@ -7,12 +9,13 @@
 
 @theme {
   --color-primary: #e5e7eb;
+  --color-primary-100: #99a1af;
   --color-secondary: #1e2939;
 }
 
+
+
 :root {
-  /* --color-primary: #e5e7eb;
-  --color-secondary: #1e2939; */
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
 
@@ -24,3 +27,11 @@
   font-style: normal;
 }
 
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100%;
+}
