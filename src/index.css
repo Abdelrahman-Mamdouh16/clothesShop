@@ -18,6 +18,7 @@
 :root {
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
+ 
 
 }
 
@@ -27,11 +28,12 @@
   font-style: normal;
 }
 
-html {
-  height: 100%;
-  margin: 0;
-}
-
-body {
+html,
+body,
+#root {
   min-height: 100%;
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <div className="container mx-auto mt-auto">
+        <div className="container px-4 lg:mx-auto mt-auto">
             <div className="mb-5">
                 <div class="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
                     <div>
@@ -27,7 +27,7 @@ export default function Footer() {
                 </div>
             </div>
             <hr />
-            <div className="flex justify-center mt-5 text-xs">
+            <div className="flex justify-center my-5 text-xs">
                 <p>Copyright2026 &copy;  Veloura. All rights reserved.</p>
             </div>
         </div>

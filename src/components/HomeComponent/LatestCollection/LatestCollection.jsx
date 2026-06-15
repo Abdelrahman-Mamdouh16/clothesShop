@@ -14,15 +14,29 @@ export default function LatestCollection({ span, Title ,products}) {
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-10">
-        {products.map((product) => (
-          <Link key={product.id} to={`#`} className=" rounded-lg p-4 cursor-pointer text-xs">
-            <img src={product.image[0]} alt={product.name} className="w-full h-auto object-cover mb-4 hover:scale-105 transition-transform duration-300 " />
-            <h3 className="">{product.name}</h3>
-            <p className="text-secondary dark:text-primary font-semibold">${product.price}</p>
-          </Link>
-        ))}
-      </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5">
+          {products.map((product) => (
+            <div key={product.id} className="overflow-hidden">
+              <Link to="#" className="cursor-pointer text-xs block">
+
+                <div className="overflow-hidden">
+                  <img
+                    src={product.image[0]}
+                    alt={product.name}
+                    className="w-full object-cover  transition-transform  hover:scale-110 will-change-transform block overflow-y-hidden"
+                  />
+                </div>
+
+                <h3 className="mt-5">{product.name}</h3>
+
+                <p className="text-secondary dark:text-primary font-semibold">
+                  ${product.price}
+                </p>
+
+              </Link>
+            </div>
+          ))}
+        </div>
     </div>
 
   )

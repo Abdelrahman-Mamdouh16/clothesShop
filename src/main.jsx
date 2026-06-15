@@ -42,10 +42,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300">
+  <div className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
 
     <ShopContextProvider>
       <RouterProvider router={router} />
     </ShopContextProvider>
+
   </div>
 );

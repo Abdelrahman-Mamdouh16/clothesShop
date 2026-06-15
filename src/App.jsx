@@ -9,9 +9,9 @@ export default function App() {
 
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <Navbar />
-      <div className="container mx-auto ">
+      <div className="container mx-auto flex-1">
         <Outlet />
       </div>
       <Footer />
