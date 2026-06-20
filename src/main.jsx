@@ -5,18 +5,18 @@ import DarkModeTheme from "./Tools/DarkModeTheme";
 
 import App from "./App";
 
-import ShopContextProvider from "./Context/ShopContext";
 import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
 import Collection from "./pages/Collection/Collection";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
-
-import UserSignInContextProvider from "./Context/UserSignInContext";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import NotFound from "./pages/NotFound/NotFound";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+
+import ShopContextProvider from "./Context/ShopContext";
+import UserSignInContextProvider from "./Context/UserSignInContext";
 
 
 DarkModeTheme();
