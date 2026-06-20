@@ -1,11 +1,10 @@
 
 import { assets } from "@/assets/assets";
 import { useContext } from "react";
-import { ShopContext } from "../../Context/shopContext";
+import { ShopContext } from "../../Context/ShopContext";
 import Hero from "../../components/HomeComponent/Hero/Hero";
 import LastesCollection from "../../components/HomeComponent/LatestCollection/LatestCollection";
 import Rolls from "../../components/HomeComponent/Rolls/Rolls";
-import HomeSubscribe from "../../components/HomeComponent/HomeSubscribe/HomeSubscribe";
 function Home() {
   const { products } = useContext(ShopContext);
 
@@ -22,7 +21,7 @@ function Home() {
         <Rolls img={assets.quality_icon} title={"7 Days Return Policy"} desc={"We provide 7 days free return policy"} />
         <Rolls img={assets.support_img} title={"Best customer support"} desc={"we provide 24/7 customer support"} />
       </div>
-      <HomeSubscribe />
+      {/* <HomeSubscribe /> */}
     </div>
   )
 }

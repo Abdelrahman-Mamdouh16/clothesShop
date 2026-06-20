@@ -4,7 +4,7 @@ function Contact() {
   return (
     <div>
       {/* Contact Title */}
-      <div className="text-center text-2xl pt-10 border-t">
+      <div className="text-center text-2xl pt-10">
         <div className="inline-flex gap-2 items-center mb-3">
           <p className="text-secondary dark:text-primary">
             CONTACT <span className="text-secondary dark:text-primary/60 font-medium">US</span>

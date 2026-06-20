@@ -15,8 +15,8 @@ export default function LatestCollection({ span, Title ,products}) {
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-5">
-          {products.map((product) => (
-            <div key={product.id} className="overflow-hidden">
+          {products.map((product,i) => (
+            <div key={i} className="overflow-hidden">
               <Link to="#" className="cursor-pointer text-xs block">
 
                 <div className="overflow-hidden">

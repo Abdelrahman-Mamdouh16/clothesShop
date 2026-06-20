@@ -1,14 +1,17 @@
 import {
+    ArrowRightStartOnRectangleIcon,
     Bars3CenterLeftIcon,
-    MagnifyingGlassIcon,
     MoonIcon,
     ShoppingBagIcon,
     SunIcon,
-    UserIcon,
+    UserIcon
 } from "@heroicons/react/24/outline";
 
-import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
+import { UserSignInContext } from "../../Context/UserSignInContext";
+
 const navLinks = [
     { name: "Home", href: "/" },
     { name: "Collection", href: "/collection" },
@@ -63,6 +66,8 @@ function Navbar() {
         document.documentElement.classList.contains("dark")
     );
     const [open, setOpen] = useState(false);
+    const { cartItems } = useContext(ShopContext);
+    const { userSignIn, UserLogOut } = useContext(UserSignInContext);
 
     const dropdownRef = useRef(null);
 
@@ -96,6 +101,11 @@ function Navbar() {
     }, []);
 
 
+
+
+    // console.log(userSignIn);
+
+
     return (
         <nav className="bg-white  dark:bg-gray-900 shadow-sm shadow-gray-300 dark:shadow-gray-800  transition-colors duration-300" ref={dropdownRef}>
             <div className="container mx-auto">
@@ -121,21 +131,18 @@ function Navbar() {
                     {/* Right buttons (desktop + mobile icons) */}
                     <div className="flex items-center  md:order-2">
 
-                        <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                            <MagnifyingGlassIcon className="w-6 h-6 text-secondary dark:text-primary" />
-                        </button>
 
-                        <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-                            <UserIcon className="w-6 h-6 text-secondary dark:text-primary" />
-                        </button>
 
-                        <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 relative">
+
+                        <Link to="/cart" className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 relative">
                             <ShoppingBagIcon className="w-6 h-6 text-secondary dark:text-primary" />
-                            <span className="absolute top-4 -right-0.5 bg-secondary dark:bg-primary text-white dark:text-gray-900 text-[12px] 
-                            rounded-full h-5 w-5 flex items-center justify-center">
-                                50
-                            </span>
-                        </button>
+                            {cartItems.length > 0 && (
+                                <span className="absolute top-4 -right-0.5 bg-secondary dark:bg-primary text-white dark:text-gray-900 text-[12px]
+                                rounded-full h-5 w-5 flex items-center justify-center">
+                                    {cartItems.length}
+                                </span>
+                            )}
+                        </Link>
 
                         <button
                             onClick={() => setDarkMode(!darkMode)}
@@ -147,6 +154,14 @@ function Navbar() {
                                 <MoonIcon className="w-6 h-6 text-gray-700 dark:text-gray-200" />
                             )}
                         </button>
+                        {userSignIn ?
+                            <button onClick={UserLogOut} className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 relative">
+                                <ArrowRightStartOnRectangleIcon
+                                    className="w-6 h-6 text-secondary dark:text-primary" />
+                            </button> :
+                            <Link to="/Signin" className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 relative">
+                                <UserIcon className="w-6 h-6 text-secondary dark:text-primary" />
+                            </Link>}
                     </div>
 
                     {/* Center Menu (Desktop) */}
@@ -171,14 +186,14 @@ function Navbar() {
                                 </li>
                             ))}
 
-                            <li>
+                            {/* <li>
                                 <NavLink
                                     to="#"
                                     className="px-3 py-1 rounded-full  border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 text-secondary dark:text-primary transition"
                                 >
                                     Admin panel
                                 </NavLink>
-                            </li>
+                            </li> */}
 
                         </ul>
                     </div>
@@ -206,7 +221,7 @@ function Navbar() {
                             </li>
                         ))}
 
-                        <li>
+                        {/* <li>
                             <NavLink
                                 to="#"
                                 onClick={() => setOpen(false)}
@@ -214,7 +229,7 @@ function Navbar() {
                             >
                                 Admin panel
                             </NavLink>
-                        </li>
+                        </li> */}
 
                     </ul>
                 </div>
