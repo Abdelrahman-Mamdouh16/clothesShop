@@ -14,7 +14,7 @@ import { UserSignInContext } from "../../Context/UserSignInContext";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Collection", href: "/collection" },
+    { name: "Products", href: "/Products" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ];

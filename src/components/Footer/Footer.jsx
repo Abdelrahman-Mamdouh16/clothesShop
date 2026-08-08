@@ -12,7 +12,7 @@ export default function Footer() {
                         </p>
                         <ul className="flex flex-col gap-1 text-gray-600">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/Collection">Collection</Link></li>
+                            <li><Link to="/Products">Products</Link></li>
                             <li><Link to="/about">About us</Link></li>
                             <li><Link to="/Contact">Contact</Link></li>
                         </ul>

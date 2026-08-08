@@ -7,7 +7,7 @@ import App from "./App";
 
 import About from "./pages/About/About";
 import Cart from "./pages/Cart/Cart";
-import Collection from "./pages/Collection/Collection";
+import Products from "./pages/Products/Products";
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
@@ -18,15 +18,12 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import ShopContextProvider from "./Context/ShopContext";
 import UserSignInContextProvider from "./Context/UserSignInContext";
 
-
 DarkModeTheme();
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:
-      <App />
-    ,
+    element: <App />,
     children: [
       {
         index: true,
@@ -41,8 +38,8 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "collection",
-        element: <Collection />,
+        path: "Products",
+        element: <Products />,
       },
       {
         path: "cart",
@@ -61,7 +58,7 @@ const router = createBrowserRouter([
         element: <NotFound />,
       },
       {
-        path: "collection/:ProductDetails",
+        path: "Products/:ProductDetails",
         element: <ProductDetails />,
       },
     ],
@@ -75,6 +72,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <RouterProvider router={router} />
       </ShopContextProvider>
     </UserSignInContextProvider>
-
-  </div>
+  </div>,
 );

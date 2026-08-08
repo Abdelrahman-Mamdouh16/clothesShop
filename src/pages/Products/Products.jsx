@@ -1,24 +1,23 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-function Collection() {
+function Products() {
   const { products } = useContext(ShopContext);
   // console.log(products);
 
   const [filters, setFilters] = useState([]);
   const [typeFilters, setTypeFilters] = useState([]);
-  const [searchBarOn, setSearchBarOn] = useState(false)
-  const [SearchValue, setSearchValue] = useState('')
-
+  const [searchBarOn, setSearchBarOn] = useState(false);
+  const [SearchValue, setSearchValue] = useState("");
 
   const handleFilter = (value) => {
     setFilters((prev) =>
       prev.includes(value)
         ? prev.filter((item) => item !== value)
-        : [...prev, value]
+        : [...prev, value],
     );
   };
 
@@ -26,21 +25,17 @@ function Collection() {
     setTypeFilters((prev) =>
       prev.includes(value)
         ? prev.filter((item) => item !== value)
-        : [...prev, value]
+        : [...prev, value],
     );
   };
   const filteredProducts = products.filter((p) => {
     const matchSearch =
-      !SearchValue ||
-      p.name.toLowerCase().includes(SearchValue.toLowerCase());
+      !SearchValue || p.name.toLowerCase().includes(SearchValue.toLowerCase());
 
-    const matchCategory =
-      filters.length === 0 ||
-      filters.includes(p.category);
+    const matchCategory = filters.length === 0 || filters.includes(p.category);
 
     const matchType =
-      typeFilters.length === 0 ||
-      typeFilters.includes(p.subCategory);
+      typeFilters.length === 0 || typeFilters.includes(p.subCategory);
 
     return matchSearch && matchCategory && matchType;
   });
@@ -48,10 +43,16 @@ function Collection() {
   console.log(filteredProducts);
   return (
     <>
-      {searchBarOn && <SearchBar setSearchBarOn={setSearchBarOn} searchBarOn={searchBarOn} SearchValue={SearchValue} setSearchValue={setSearchValue} />}
+      {searchBarOn && (
+        <SearchBar
+          setSearchBarOn={setSearchBarOn}
+          searchBarOn={searchBarOn}
+          SearchValue={SearchValue}
+          setSearchValue={setSearchValue}
+        />
+      )}
       <div className="grid lg:grid-cols-12 gap-10 mt-10 mx-3">
         <div className="lg:col-span-3">
-
           {/* FILTERS */}
           <p className="text-2xl tracking-wide text-secondary dark:text-primary">
             FILTERS
@@ -62,8 +63,7 @@ function Collection() {
             <p className="mb-3 text-sm font-medium">CATEGORIES</p>
 
             <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-
-              {["Men", "Women", "Kids"].map((item,i) => (
+              {["Men", "Women", "Kids"].map((item, i) => (
                 <label key={i} className="flex gap-2 items-center">
                   <input
                     type="checkbox"
@@ -72,10 +72,11 @@ function Collection() {
                     onChange={(e) => handleFilter(e.target.value)}
                     className="w-4 h-4 "
                   />
-                  <span className="text-secondary dark:text-primary">{item}</span>
+                  <span className="text-secondary dark:text-primary">
+                    {item}
+                  </span>
                 </label>
               ))}
-
             </div>
           </div>
 
@@ -84,8 +85,7 @@ function Collection() {
             <p className="mb-3 text-sm font-medium">TYPE</p>
 
             <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
-
-              {["Topwear", "Bottomwear", "Winterwear"].map((item,i) => (
+              {["Topwear", "Bottomwear", "Winterwear"].map((item, i) => (
                 <label key={i} className="flex gap-2 items-center">
                   <input
                     type="checkbox"
@@ -94,10 +94,11 @@ function Collection() {
                     onChange={(e) => handleTypeFilter(e.target.value)}
                     className="w-4 h-4"
                   />
-                  <span className="text-secondary dark:text-primary">{item}</span>
+                  <span className="text-secondary dark:text-primary">
+                    {item}
+                  </span>
                 </label>
               ))}
-
             </div>
           </div>
         </div>
@@ -106,20 +107,30 @@ function Collection() {
           <div className="flex justify-between">
             <div className="flex items-center gap-3 justify-start">
               <p className="text-2xl tracking-wide text-secondary dark:text-primary">
-                <span className="text-gray-500 dark:text-primary-100">ALL </span>COLLECTIONS</p>
+                <span className="text-gray-500 dark:text-primary-100">
+                  ALL{" "}
+                </span>
+                COLLECTIONS
+              </p>
               <span className="w-15 h-[1.7px] bg-secondary dark:bg-primary"></span>
             </div>
-            {!searchBarOn &&
-              <button className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" onClick={() => setSearchBarOn(!searchBarOn)}>
+            {!searchBarOn && (
+              <button
+                className="p-1 cursor-pointer focus:outline-none rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                onClick={() => setSearchBarOn(!searchBarOn)}
+              >
                 <MagnifyingGlassIcon className="w-6 h-6 text-secondary dark:text-primary" />
-              </button>}
+              </button>
+            )}
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
-            {filteredProducts.map((product,i) => (
+            {filteredProducts.map((product, i) => (
               <div key={i} className="overflow-hidden">
-                <Link to={`/collection/${product._id}`} className="cursor-pointer text-xs block">
-
+                <Link
+                  to={`/collection/${product._id}`}
+                  className="cursor-pointer text-xs block"
+                >
                   <div className="overflow-hidden">
                     <img
                       src={product.image[0]}
@@ -133,7 +144,6 @@ function Collection() {
                   <p className="text-secondary dark:text-primary font-semibold">
                     ${product.price}
                   </p>
-
                 </Link>
               </div>
             ))}
@@ -141,9 +151,7 @@ function Collection() {
         </div>
       </div>
     </>
-
-  )
+  );
 }
 
-export default Collection
-
+export default Products;

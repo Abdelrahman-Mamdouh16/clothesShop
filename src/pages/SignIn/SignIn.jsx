@@ -1,5 +1,5 @@
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserSignInContext } from "../../Context/UserSignInContext";
 import { useContext } from "react";
 
@@ -46,13 +46,13 @@ export default function SignIn() {
                 className="h-4 w-4 accent-secondary dark:accent-white"
               />Remember me
             </label>
-            <a href="#" className="text-sm text-secondary dark:text-primary hover:underline">Forgot?</a>
+            <Link to="#" className="text-sm text-secondary dark:text-primary hover:underline">Forgot?</Link>
           </div>
 
           <button type="submit" className=" cursor-pointer w-full py-2 rounded-md bg-secondary dark:bg-primary text-white dark:text-gray-900 font-medium hover:opacity-90 transition">Sign in</button>
         </form>
 
-        <p className="mt-4 text-center text-sm text-secondary dark:text-primary">Don't have an account? <a href="/signup" className="text-secondary dark:text-primary font-medium underline">Sign up</a></p>
+        <p className="mt-4 text-center text-sm text-secondary dark:text-primary">Don't have an account? <Link to="/signup" className="text-secondary dark:text-primary font-medium underline">Sign up</Link></p>
       </div>
     </div>
   );
