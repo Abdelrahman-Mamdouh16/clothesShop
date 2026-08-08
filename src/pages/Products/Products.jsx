@@ -128,7 +128,7 @@ function Products() {
             {filteredProducts.map((product, i) => (
               <div key={i} className="overflow-hidden">
                 <Link
-                  to={`/collection/${product._id}`}
+                  to={`/Products/${product._id}`}
                   className="cursor-pointer text-xs block"
                 >
                   <div className="overflow-hidden">
