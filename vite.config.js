@@ -20,7 +20,8 @@ export default defineConfig({
         Products: {
           type: "module",
           name: "products",
-          entry: "https://clothes-shop-product-microfrontend.vercel.app/remoteEntry.js",
+          // entry: "https://clothes-shop-product-microfrontend.vercel.app/remoteEntry.js",
+          entry: "http://localhost:5001/remoteEntry.js",
           shareScope: "default",
         },
       },
