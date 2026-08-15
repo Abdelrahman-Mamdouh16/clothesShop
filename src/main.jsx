@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import DarkModeTheme from "./Tools/DarkModeTheme";
-
 import App from "./App";
 
 import About from "./pages/About/About";
