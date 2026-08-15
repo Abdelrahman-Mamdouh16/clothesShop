@@ -77,25 +77,26 @@ function Cart() {
 
                   {/* Quantity */}
                   <div className="col-span-2 flex items-center gap-2 border border-gray-300 w-fit px-3 py-1">
-                    <button
+                    {item.quantity}
+                    {/* <button
                       onClick={() => updateQuantity(item._id, item.quantity - 1)}
                       className="text-secondary dark:text-primary font-bold"
                     >
                       −
-                    </button>
-                    <input
+                    </button> */}
+                    {/* <input
                       type="number"
                       value={item.quantity}
                       onChange={(e) => updateQuantity(item._id, parseInt(e.target.value) || 1)}
                       className="w-8 text-center bg-transparent text-secondary dark:text-primary border-none outline-none"
                       min="1"
-                    />
-                    <button
+                    /> */}
+                    {/* <button
                       onClick={() => updateQuantity(item._id, item.quantity + 1)}
                       className="text-secondary dark:text-primary font-bold"
                     >
                       +
-                    </button>
+                    </button> */}
                   </div>
 
                   {/* Total */}

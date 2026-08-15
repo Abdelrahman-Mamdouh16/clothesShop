@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@module-federation/vite": "^1.20.5",
     "@tailwindcss/vite": "^4.3.0",
     "flowbite": "^4.0.2",
     "flowbite-react": "^0.12.17",

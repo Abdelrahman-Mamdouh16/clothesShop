@@ -1,21 +1,23 @@
 import ReactDOM from "react-dom/client";
+import ProductsRoutes, { Products, ProductDetails } from "Products/Products";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import DarkModeTheme from "./Tools/DarkModeTheme";
+
 import App from "./App";
 
 import About from "./pages/About/About";
-import Cart from "./pages/Cart/Cart";
-import Products from "./pages/Products/Products";
+
+
 import Contact from "./pages/Contact/Contact";
 import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFound/NotFound";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
-import NotFound from "./pages/NotFound/NotFound";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 import ShopContextProvider from "./Context/ShopContext";
 import UserSignInContextProvider from "./Context/UserSignInContext";
+import Cart from "./pages/Cart/Cart";
 
 DarkModeTheme();
 
@@ -38,7 +40,17 @@ const router = createBrowserRouter([
       },
       {
         path: "Products",
-        element: <Products />,
+        element: <ProductsRoutes />,
+        children: [
+          {
+            index: true,
+            element: <Products />,
+          },
+          {
+            path: ":ProductDetails",
+            element: <ProductDetails />,
+          },
+        ],
       },
       {
         path: "cart",
@@ -55,10 +67,6 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
-      },
-      {
-        path: "Products/:ProductDetails",
-        element: <ProductDetails />,
       },
     ],
   },
